@@ -1,0 +1,19 @@
+import { frame } from "frames.js/next";
+
+export const GET = frame(async (ctx) => {
+  return {
+    image: {
+      src: `${process.env.BASE_URL}/default.jpg`,
+      aspectRatio: "1.91:1",
+    },
+    buttons: [
+      {
+        label: "Generate My Cover",
+        action: {
+          type: "post",
+          target: "/api/check-nft",
+        },
+      },
+    ],
+  };
+});
